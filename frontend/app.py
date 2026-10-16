@@ -4,14 +4,14 @@ from pathlib import Path
 # Page configuration
 st.set_page_config(page_title="RetailPulse Platform", page_icon="⚡", layout="wide")
 
-# Get base path dynamically
-BASE_DIR = Path(__file__).parent
+# Point BASE_DIR to the ROOT folder of the repository (one level up from frontend/)
+BASE_DIR = Path(__file__).parent.parent
 
 # Initialize global authentication state
 if "authenticated" not in st.session_state:
     st.session_state["authenticated"] = False
 
-# Define Pages
+# Define Pages pointing to the root-level pages/ directory
 auth_page = st.Page(
     BASE_DIR / "pages" / "00_Auth.py",
     title="Sign In / Sign Up",
